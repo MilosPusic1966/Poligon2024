@@ -52,9 +52,12 @@ namespace Poligon2024
             */
             poligon prvi = new poligon(4);
             prvi.teme[0] = new tacka(0.5,1.5);
-            prvi.teme[1] = new tacka(1.5, 0.5);
+            // prvi.teme[1] = new tacka(1.5, 0.5);
+            prvi.teme[1] = new tacka(1.5, 2);
             prvi.teme[2] = new tacka(2.5, 1.5);
             prvi.teme[3] = new tacka(1.5, 3.5);
+
+            /* Obim novog
             for (int i = 0; i < prvi.teme.Length; i++)
             {
                 Console.WriteLine("x={0}, y={1}", prvi.teme[i].x, prvi.teme[i].y);
@@ -71,7 +74,22 @@ namespace Poligon2024
                 Console.WriteLine("xn={0}, yn={1}", drugi.teme[i].x, drugi.teme[i].y);
             }
             Console.WriteLine("obim={0}", drugi.obim());
+            */
 
+            // B i D sa iste strane dijagonale AC
+            vektor AC = new vektor(prvi.teme[0], prvi.teme[2]);
+            vektor AD = new vektor(prvi.teme[0], prvi.teme[3]);
+            double k1 = vektor.VP(AC, AD);
+            vektor AB = new vektor(prvi.teme[0], prvi.teme[1]);
+            double k2 = vektor.VP(AC, AB);
+            if (k1 * k2 > 0)
+            {
+                Console.WriteLine("Sa iste strane");
+            }
+            else
+            {
+                Console.WriteLine("Sa raznih strana");
+            }
         }
     }
 }
