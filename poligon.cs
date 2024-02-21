@@ -8,7 +8,7 @@ namespace Poligon2024
 {
     internal class poligon
     {
-        int broj_temena;
+        public int broj_temena;
         public tacka[] teme;
         public poligon()
         {
@@ -30,6 +30,16 @@ namespace Poligon2024
             }
             if ((plusevi == 0) || plusevi == broj_temena) return true;
             else return false;
+        }
+        public double obim()
+        {
+            double obim = 0;
+            for (int i = 0; i < broj_temena; i++)
+            {
+                vektor novi = new vektor(teme[i], teme[(i + 1) % broj_temena]);
+                obim += novi.duzina();
+            }
+            return obim;
         }
     }
 }

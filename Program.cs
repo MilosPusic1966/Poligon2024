@@ -50,21 +50,27 @@ namespace Poligon2024
             double stampa = vektor.ugao(prvi, drugi);
             Console.WriteLine("ugao = "+stampa.ToString());
             */
-            poligon novi = new poligon(6);
-            tacka A = new tacka(-1,2);
-            tacka B = new tacka(-2,0);
-            tacka C = new tacka(-1,-2);
-            tacka D = new tacka(1,-2);
-            tacka E = new tacka(2, 0);
-            tacka F = new tacka(1, 2);
-            tacka[] niz = new tacka[6];
-            novi.teme[0] = A;
-            novi.teme[1] =  B;
-            novi.teme[2] =  C;
-            novi.teme[3] =  D;
-            novi.teme[4] =  E;
-            novi.teme[5] =  F;
-            Console.WriteLine(novi.konveksan());
+            poligon prvi = new poligon(4);
+            prvi.teme[0] = new tacka(0.5,1.5);
+            prvi.teme[1] = new tacka(1.5, 0.5);
+            prvi.teme[2] = new tacka(2.5, 1.5);
+            prvi.teme[3] = new tacka(1.5, 3.5);
+            for (int i = 0; i < prvi.teme.Length; i++)
+            {
+                Console.WriteLine("x={0}, y={1}", prvi.teme[i].x, prvi.teme[i].y);
+            }
+            poligon drugi = new poligon(prvi.teme.Length);
+            for (int i = 0; i < drugi.teme.Length; i++)
+            {
+                double x_novo = (prvi.teme[i].x + prvi.teme[(i+1)% drugi.broj_temena].x)/2;
+                double y_novo = (prvi.teme[i].y + prvi.teme[(i + 1) % drugi.broj_temena].y)/2;
+                drugi.teme[i] = new tacka(x_novo, y_novo);
+            }
+            for (int i = 0; i < prvi.teme.Length; i++)
+            {
+                Console.WriteLine("xn={0}, yn={1}", drugi.teme[i].x, drugi.teme[i].y);
+            }
+            Console.WriteLine("obim={0}", drugi.obim());
 
         }
     }

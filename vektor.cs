@@ -52,5 +52,11 @@ namespace Poligon2024
             }
             return ugaoB - ugaoA;
         }
+        public double duzina()
+        {
+            tacka nova = vektor_c(this);
+            double duzina = nova.get_r();
+            return duzina;
+        }
     }
 }
