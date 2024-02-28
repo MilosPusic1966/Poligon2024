@@ -50,12 +50,12 @@ namespace Poligon2024
             double stampa = vektor.ugao(prvi, drugi);
             Console.WriteLine("ugao = "+stampa.ToString());
             */
-            poligon prvi = new poligon(4);
-            prvi.teme[0] = new tacka(0.5,1.5);
+            //poligon prvi = new poligon(4);
+            //prvi.teme[0] = new tacka(0.5,1.5);
             // prvi.teme[1] = new tacka(1.5, 0.5);
-            prvi.teme[1] = new tacka(1.5, 2);
-            prvi.teme[2] = new tacka(2.5, 1.5);
-            prvi.teme[3] = new tacka(1.5, 3.5);
+            //prvi.teme[1] = new tacka(1.5, 2);
+            //prvi.teme[2] = new tacka(2.5, 1.5);
+            //prvi.teme[3] = new tacka(1.5, 3.5);
 
             /* Obim novog
             for (int i = 0; i < prvi.teme.Length; i++)
@@ -74,7 +74,7 @@ namespace Poligon2024
                 Console.WriteLine("xn={0}, yn={1}", drugi.teme[i].x, drugi.teme[i].y);
             }
             Console.WriteLine("obim={0}", drugi.obim());
-            */
+            
 
             // B i D sa iste strane dijagonale AC
             vektor AC = new vektor(prvi.teme[0], prvi.teme[2]);
@@ -90,6 +90,15 @@ namespace Poligon2024
             {
                 Console.WriteLine("Sa raznih strana");
             }
+            */
+            poligon prvi = new poligon(4);
+            prvi.teme[0] = new tacka(1, 1);
+            prvi.teme[1] = new tacka(3, 1);
+            prvi.teme[2] = new tacka(2, 1);
+            prvi.teme[3] = new tacka(2, 2);
+            vektor AB = new vektor(prvi.teme[0], prvi.teme[1]);
+            vektor CD = new vektor(prvi.teme[2], prvi.teme[3]);
+            Console.WriteLine(vektor.presek(AB, CD));
         }
     }
 }
