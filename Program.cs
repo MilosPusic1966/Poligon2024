@@ -98,7 +98,7 @@ namespace Poligon2024
             prvi.teme[3] = new tacka(2, 2);
             vektor AB = new vektor(prvi.teme[0], prvi.teme[1]);
             vektor CD = new vektor(prvi.teme[2], prvi.teme[3]);
-            Console.WriteLine(vektor.presek(AB, CD));
+            Console.WriteLine(ravan.presek(AB, CD));
         }
     }
 }
