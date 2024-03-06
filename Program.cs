@@ -90,7 +90,7 @@ namespace Poligon2024
             {
                 Console.WriteLine("Sa raznih strana");
             }
-            */
+            
             poligon prvi = new poligon(4);
             prvi.teme[0] = new tacka(1, 1);
             prvi.teme[1] = new tacka(3, 1);
@@ -99,6 +99,49 @@ namespace Poligon2024
             vektor AB = new vektor(prvi.teme[0], prvi.teme[1]);
             vektor CD = new vektor(prvi.teme[2], prvi.teme[3]);
             Console.WriteLine(ravan.presek(AB, CD));
+            
+            // Da li je dati cetvorougao pravougli trapez
+            poligon prvi = new poligon(4);
+            prvi.teme[0] = new tacka(3, 2);
+            prvi.teme[1] = new tacka(12, 2);
+            prvi.teme[2] = new tacka(9, 5);
+            prvi.teme[3] = new tacka(3, 5);
+            double[] ugao = new double[4];
+            vektor[] vektori= new vektor[4];
+            for (int i = 0; i < 4; i++)
+            {
+                vektori[i] = new vektor(prvi.teme[i], prvi.teme[(i + 1) % 4]);
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                ugao[i] = vektor.skalarni(vektori[i], vektori[(i + 1) % 4]);
+            }
+            int pravi = 0;
+            int susedni = 0;    
+            for (int i = 0; i < 4; i++)
+            {
+                if (ugao[i] == 0) pravi++;
+                if ((ugao[i] == 0) && ugao[(i + 1) % 4] == 0) susedni++;
+            }
+            if ((pravi == 2) && (susedni == 1)) Console.WriteLine("Jeste");
+            else Console.WriteLine("Nije");
+            */
+            poligon prvi = new poligon(4);
+            prvi.teme[0] = new tacka(6, 8);
+            prvi.teme[1] = new tacka(5, 6);
+            prvi.teme[2] = new tacka(8, 2);
+            vektor AB = new vektor(prvi.teme[0], prvi.teme[1]);
+            vektor BA = new vektor(prvi.teme[1], prvi.teme[0]);
+            vektor BC = new vektor(prvi.teme[1], prvi.teme[2]);
+            vektor AC = new vektor(prvi.teme[0], prvi.teme[2]);
+            vektor CA = new vektor(prvi.teme[2], prvi.teme[0]);
+            vektor CB = new vektor(prvi.teme[2], prvi.teme[1]);
+            double A = vektor.ugao(AB, AC);
+            double B = vektor.ugao(BC, BA);
+            double C = vektor.ugao(CA, CB);
+            Console.WriteLine(A);
+            Console.WriteLine(B);
+            Console.WriteLine(C);
         }
     }
 }
